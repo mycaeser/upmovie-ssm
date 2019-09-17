@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.caeser.upmovie.entity.Movie;
+import com.caeser.upmovie.enums.MovieStateEnum;
 import com.caeser.upmovie.service.MovieService;
 import com.caeser.upmovie.util.HttpServletRequestUtil;
+import com.caeser.upmovie.util.UrlReturnMsg;
 
 
 
@@ -29,7 +31,14 @@ public class MovieController {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		long moveId=HttpServletRequestUtil.getLong(request, "id");
 		Movie movie=movieService.getMovieById(moveId);
-		modelMap.put("movie",movie);
+		if(movie==null){
+			//如果没查询到结果
+			modelMap.put(UrlReturnMsg.stateCode, MovieStateEnum.NOTEXIT.getState());
+			modelMap.put(UrlReturnMsg.errorMsg, MovieStateEnum.NOTEXIT.getStateInfo());
+		}else{
+			modelMap.put("movie",movie);
+		}
+		
 		return modelMap;
 	}
 }
