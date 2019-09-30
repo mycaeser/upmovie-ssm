@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caeser.upmovie.dao.TypeDao">
+		
+	<select id="getTypeByid"   resultType="com.caeser.upmovie.entity.Type">
+		select
+		ID,
+		NAME,
+		CREATE_TIME,
+		UPDATE_TIME
+		from
+		upm_type 
+		where
+		ID = #{id}
+	</select>
+	<select id="getTypeListAll"   resultType="com.caeser.upmovie.entity.Type">
+		select
+		ID,
+		NAME,
+		CREATE_TIME,
+		UPDATE_TIME
+		from
+		upm_type 
+	</select>
+	<select id="getTypeListByRange"   resultType="com.caeser.upmovie.entity.Type">
+		select
+		ID,
+		NAME,
+		CREATE_TIME,
+		UPDATE_TIME
+		from
+		upm_type
+		limit #{start},#{end}
+	</select>
+</mapper>

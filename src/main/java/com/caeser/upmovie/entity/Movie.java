@@ -2,6 +2,7 @@ package com.caeser.upmovie.entity;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Movie {
 	//电影编号
@@ -24,6 +25,8 @@ public class Movie {
 	private Timestamp updateTime;
 	//语言
 	private String langName;
+	//类型
+	private List<Type> typeList;
 	public long getId() {
 		return id;
 	}
@@ -83,6 +86,12 @@ public class Movie {
 	}
 	public void setLangName(String langName) {
 		this.langName = langName;
+	}
+	public List<Type> getTypeList() {
+		return typeList;
+	}
+	public void setTypeList(List<Type> typeList) {
+		this.typeList = typeList;
 	}
 	
 }

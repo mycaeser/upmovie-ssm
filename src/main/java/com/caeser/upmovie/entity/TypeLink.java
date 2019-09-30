@@ -13,6 +13,8 @@ public class TypeLink {
 	private Timestamp createTime;
 	//更新时间
 	private Timestamp updateTime;
+	//电影名
+	private String movieName;
 	public long getId() {
 		return id;
 	}
@@ -43,4 +45,11 @@ public class TypeLink {
 	public void setUpdateTime(Timestamp updateTime) {
 		this.updateTime = updateTime;
 	}
+	public String getMovieName() {
+		return movieName;
+	}
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+	
 }
